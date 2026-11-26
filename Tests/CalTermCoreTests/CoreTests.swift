@@ -77,3 +77,7 @@ private func text(_ events: [Event], from: Date) -> String {
     let output = try json([event("a", date(11, 25, 9), date(11, 25, 10))], timeZone: zone)
     #expect(output.contains("2026-11-25T09:00:00-03:30"))
 }
+
+@Test func versionFlag() throws {
+    #expect(try parse(["--version"]).command == .version)
+}

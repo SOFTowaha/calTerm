@@ -2,12 +2,12 @@
 
 Your macOS Calendar in the terminal. The command is `ct`.
 
-    swift build -c release
-    .build/release/ct               # month grid
-    .build/release/ct week          # hour-by-hour week
-    .build/release/ct day           # today
-    .build/release/ct nov 5         # any date
-    .build/release/ct ui            # full-screen calendar (? shows the keys)
+    brew install SOFTowaha/tap/calterm
+    ct                    # month grid
+    ct week               # hour-by-hour week
+    ct day                # today
+    ct nov 5              # any date
+    ct ui                 # full-screen calendar (? shows the keys)
 
 ## Commands
 
@@ -30,6 +30,7 @@ DATE is plain English: `tomorrow`, `last friday`, `nov 11`, `next weekend`,
 
 ## Development
 
+    swift build -c release    # builds .build/release/ct
     swift test
 
 ## Credits

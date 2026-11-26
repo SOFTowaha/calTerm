@@ -27,7 +27,7 @@ public struct Event: Equatable, Sendable, Encodable {
 }
 
 public enum Command: String, CaseIterable, Sendable {
-    case month, week, today, next, calendars, ui, help
+    case month, week, today, next, calendars, ui, help, version
 }
 
 public struct Options: Equatable, Sendable {
@@ -47,6 +47,8 @@ public struct UsageError: Error, Equatable {
     public let message: String
 }
 
+public let appVersion = "0.1.0"
+
 public let usage = """
 usage: ct [command or date] [+N|-N] [--json] [--no-color] [--no-icons]
 
@@ -57,6 +59,7 @@ usage: ct [command or date] [+N|-N] [--json] [--no-color] [--no-icons]
   next        the current or next timed event (looks 30 days ahead)
   calendars   list your calendars and their accounts
   help        show this text
+  --version   show the version
 
 dates:  tomorrow, yesterday, friday, next friday, last friday,
         nov 11, 23 november 2025, 2025-11-23, in 3 days, 2 weeks ago,
@@ -75,6 +78,8 @@ public func parse(_ arguments: [String], now: Date = Date(),
             options.icons = false
         } else if argument == "--no-color" {
             options.color = false
+        } else if argument == "--version" {
+            return Options(command: .version, json: false)
         } else if argument == "-h" || argument == "--help" {
             return Options(command: .help, json: false)
         } else if let first = argument.first, first == "+" || first == "-",

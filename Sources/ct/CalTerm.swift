@@ -23,6 +23,12 @@ struct CalTerm {
             return
         }
 
+        // Answered before asking for calendar access.
+        if options.command == .version {
+            print("ct \(appVersion) (calTerm)")
+            return
+        }
+
         let store = EKEventStore()
         let granted = (try? await store.requestFullAccessToEvents()) ?? false
         guard granted else {
