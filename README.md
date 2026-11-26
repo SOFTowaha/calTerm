@@ -2,12 +2,32 @@
 
 Your macOS Calendar in the terminal. The command is `ct`.
 
+**[Read the story behind it on my blog](https://soft.me.uk/blog/posts/calterm-macos-calendar-in-the-terminal/)**
+
+![Full-screen mode: mini month, a day of events and their details](docs/cover.webp)
+
     brew install SOFTowaha/tap/calterm
     ct                    # month grid
     ct week               # hour-by-hour week
     ct day                # today
     ct nov 5              # any date
     ct ui                 # full-screen calendar (? shows the keys)
+
+## Screenshots
+
+All events shown are invented.
+
+### Week (`ct week`)
+
+![Week view with events as blocks on an hourly grid](docs/week.webp)
+
+### Day (`ct day`)
+
+![Day view as a table of time, event, place and calendar](docs/day.webp)
+
+### Month (`ct`)
+
+![Month grid with events listed in each day](docs/month.webp)
 
 ## Commands
 
